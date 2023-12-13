@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -12,6 +12,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { saveSignedInUser } = authSlice.actions;
+export const {saveSignedInUser} = authSlice.actions;
 //export const selectSignedInUser = (state) => state.auth.signedInUser;
 export default authSlice.reducer;

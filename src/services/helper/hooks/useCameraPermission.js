@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { check, request, RESULTS } from '@react-native-permissions/permissions';
+import {useEffect, useState} from 'react';
+import {check, request, RESULTS} from '@react-native-permissions/permissions';
 
 const CAMERA_PERMISSION = 'camera';
 
@@ -8,15 +8,15 @@ const useCameraPermissions = () => {
 
   useEffect(() => {
     check(CAMERA_PERMISSION)
-      .then((result) => {
+      .then(result => {
         setStatus(result);
         if (result === RESULTS.DENIED) {
-          request(CAMERA_PERMISSION).then((requestResult) => {
+          request(CAMERA_PERMISSION).then(requestResult => {
             setStatus(requestResult);
           });
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.error('Error checking camera permission:', error);
       });
   }, []);

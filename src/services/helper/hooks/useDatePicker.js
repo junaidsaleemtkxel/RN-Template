@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 const useDatePicker = () => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -12,7 +12,7 @@ const useDatePicker = () => {
     setDatePickerVisibility(false);
   };
 
-  const handleConfirm = (date) => {
+  const handleConfirm = date => {
     setSelectedDate(date);
     hideDatePicker();
   };

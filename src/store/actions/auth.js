@@ -1,16 +1,9 @@
-import {
-    saveSignedInUser
-} from "../reducers/auth";
+import {saveSignedInUser} from '../reducers/auth';
 
-import store from "../index";
+import store from '../index';
 
-const { dispatch } = store
-
+const {dispatch} = store;
 
 export const setSignedInUser = data => {
-    dispatch(saveSignedInUser(data))
-}
-
-
-
-
+  dispatch(saveSignedInUser(data));
+};

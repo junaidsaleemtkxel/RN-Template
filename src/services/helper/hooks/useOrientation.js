@@ -1,19 +1,24 @@
-import { useState, useEffect } from 'react'
+import {useState, useEffect} from 'react';
 
-import { Dimensions } from 'react-native';
+import {Dimensions} from 'react-native';
 
 export default function useOrientation() {
   const [isPortrait, setIsPortrait] = useState(
-    Dimensions.get('window').height > Dimensions.get('window').width
+    Dimensions.get('window').height > Dimensions.get('window').width,
   );
 
   useEffect(() => {
     const updateOrientation = () => {
-      setIsPortrait(Dimensions.get('window').height > Dimensions.get('window').width);
+      setIsPortrait(
+        Dimensions.get('window').height > Dimensions.get('window').width,
+      );
     };
 
     // Add event listeners for orientation changes
-    const subscription = Dimensions.addEventListener('change', updateOrientation);
+    const subscription = Dimensions.addEventListener(
+      'change',
+      updateOrientation,
+    );
 
     // Remove the event listener when the component unmounts
     return () => subscription.remove();
@@ -22,11 +27,7 @@ export default function useOrientation() {
   return isPortrait;
 }
 
-
-
 // // useOrientation.tsx
-
-
 
 // import { useEffect, useState } from 'react';
 // import { Dimensions } from 'react-native';

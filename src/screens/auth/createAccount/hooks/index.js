@@ -1,8 +1,7 @@
-import { useState } from "react"
+import {useState} from 'react';
 
 export function useHooks() {
+  const [accepted, setAccepted] = useState(false);
 
-    const [accepted, setAccepted] = useState(false)
-
-    return { accepted, setAccepted }
+  return {accepted, setAccepted};
 }

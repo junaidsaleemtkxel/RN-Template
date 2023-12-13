@@ -1,3 +1,3 @@
 export function useHooks() {
-    return {}
+  return {};
 }
