@@ -13,15 +13,22 @@ import {
 import {useHooks} from './hooks';
 import {navigate} from '../../../navigation/rootNavigation';
 import {routes} from '../../../services';
-
+import useUserStore from '../../../zustandStore/store';
 export default function Home() {
   const {} = useHooks();
+  const {user} = useUserStore();
   return (
     <Wrapper isMain isCenter>
       <Wrapper alignItemsCenter>
         <Text isLargeTitle>Home</Text>
+        <Text isLargeTitle>{user?.email}</Text>
         <Spacer isBasic />
-        <Text isMedium isGray onPress={() => navigate(routes.postDetail)}>
+        <Text
+          isMedium
+          isGray
+          onPress={() => {
+            navigate(routes.postDetail);
+          }}>
           View Post Details
         </Text>
       </Wrapper>

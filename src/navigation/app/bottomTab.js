@@ -1,3 +1,6 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/no-unstable-nested-components */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {
   appImages,
@@ -16,7 +19,7 @@ const BottomTabStack = createBottomTabNavigator();
 export default function BottomTabNavigation() {
   const tabIconSize = responsiveFontSize(25);
 
-  const TabIcon = ({color, iconName, iconType, size, focused, image}) => {
+  const TabIcon = ({color, iconName, iconType, focused, image}) => {
     return (
       <Wrapper
         alignItemsCenter
@@ -58,7 +61,7 @@ export default function BottomTabNavigation() {
           component={App.Home}
           options={() => ({
             tabBarLabel: 'Home',
-            tabBarIcon: ({color, size, focused}) => {
+            tabBarIcon: ({color, focused}) => {
               return (
                 <TabIcon
                   iconName="home"
@@ -76,7 +79,7 @@ export default function BottomTabNavigation() {
           component={App.Community}
           options={() => ({
             tabBarLabel: 'Community',
-            tabBarIcon: ({color, size, focused}) => {
+            tabBarIcon: ({color, focused}) => {
               return (
                 <TabIcon
                   iconName="globe"
@@ -94,7 +97,7 @@ export default function BottomTabNavigation() {
           component={App.Shop}
           options={() => ({
             tabBarLabel: 'Shop',
-            tabBarIcon: ({color, size, focused}) => {
+            tabBarIcon: ({color, focused}) => {
               return (
                 <TabIcon
                   iconName="shopping-cart"
@@ -113,7 +116,7 @@ export default function BottomTabNavigation() {
           component={App.Account}
           options={() => ({
             tabBarLabel: 'Account',
-            tabBarIcon: ({color, size, focused}) => {
+            tabBarIcon: ({color, focused}) => {
               return (
                 <TabIcon
                   iconName="user"

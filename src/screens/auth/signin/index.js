@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {View} from 'react-native';
 import {totalSize} from 'react-native-dimension';
 import {
@@ -23,6 +23,8 @@ export default function Index(props) {
   const {navigate} = props.navigation;
 
   const {handleLogin} = useHooks();
+  const [email, setEmail] = useState('johndoe@gmail.com');
+  const [password, setPassword] = useState('123456');
   return (
     <Wrapper isMain style={[{}]}>
       <ScrollViews.KeyboardAvoiding>
@@ -36,11 +38,16 @@ export default function Index(props) {
             Login to your account
           </Text>
           <Spacer isMedium />
-          <TextInputs.Underlined title={'Email'} value={'johndoe@gmail.com'} />
+          <TextInputs.Underlined
+            title={'Email'}
+            value={email}
+            onChangeText={setEmail}
+          />
           <Spacer isMedium />
           <TextInputs.Underlined
             title={'Password'}
-            value={'12345656676'}
+            value={password}
+            onChangeText={setPassword}
             iconNameRight="eye"
             iconTypeRight={'feather'}
             secureTextEntry
@@ -56,7 +63,12 @@ export default function Index(props) {
             </Text>
           </Wrapper>
           <Spacer isMedium />
-          <Buttons.Colored text="Login" onPress={handleLogin} />
+          <Buttons.Colored
+            text="Login"
+            onPress={() => {
+              handleLogin(email);
+            }}
+          />
           <Spacer height={responsiveHeight(10)} />
           <Text
             isRegular

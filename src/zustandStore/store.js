@@ -1,9 +1,15 @@
 import {create} from 'zustand';
+import {immer} from 'zustand/middleware/immer';
+const useUserStore = create(
+  immer(set => ({
+    user: {
+      id: null,
+      username: '',
+      email: '',
+    },
+    setUser: newUser => set(state => ({user: newUser})),
+    logout: () => set(state => ({user: null})),
+  })),
+);
 
-const useStore = create(set => ({
-  count: 0,
-  increase: () => set(state => ({count: state.count + 1})),
-  decrease: () => set(state => ({count: state.count - 1})),
-}));
-
-export default useStore;
+export default useUserStore;
